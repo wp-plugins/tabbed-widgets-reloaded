@@ -1,4 +1,4 @@
-=== Tabbed Widgets ===
+=== Tabbed Widgets Realoded ===
 Contributors: anupam saha
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anupamsahain%40gmail%2ecom&lc=US&item_name=Tabbed%20Widgets%20Reloaded%20Plugin%20for%20WordPress&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest
 Tags: widget, widgets, tabs, tabbed widgets, accordion, sidebar, ui
