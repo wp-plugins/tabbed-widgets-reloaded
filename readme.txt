@@ -28,7 +28,7 @@ With Tabbed Widgets you can use *any widget* inside the tabbed interface and you
 
 = Tabbed Widget design services =
 
-Tabbed widgets created by this plugin have very little CSS applied by default because every theme is very different.
+Tabbed widgets created by this plugin have very little CSS applied by default because every theme is very different. So, if you like to customize it’s design, you can drop in a line to me. I will help you to achieve your goal.
 
 == Installation ==
 
