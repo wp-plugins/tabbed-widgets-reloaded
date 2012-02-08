@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Tabbed Widgets Reloaded
- Plugin URI: http://code.google.com/p/tabbed-widgets-reloaded/
+ Plugin URI: http://wordpress.org/extend/plugins/tabbed-widgets-reloaded/
  Description: Place widgets into tabbed and accordion type interface.
  Version: 0.2
  Author: Anupam Saha
