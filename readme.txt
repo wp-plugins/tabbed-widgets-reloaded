@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anupa
 Tags: widget, widgets, tabs, tabbed widgets, accordion, sidebar, ui
 Requires at least: 2.9
 Tested up to: 3.3.1
-Stable tag: 0.1
+Stable tag: 0.2
 
 Create tab and accordion type widgets without writing a single line of code.
 
@@ -43,9 +43,14 @@ Tabbed widgets created by this plugin have very little CSS applied by default be
 
 == Changelog ==
 
+* **0.2**: Fixed annoying warning message when activated.
+
 *	**0.1**: Initial public release.
 
 == Upgrade Notice ==
+
+= 0.2 =
+Fixed annoying warning message when activated.
 
 = 0.1 =
 Added support for WP 3.3.1 and improved performance.

@@ -3,7 +3,7 @@
  Plugin Name: Tabbed Widgets Reloaded
  Plugin URI: http://code.google.com/p/tabbed-widgets-reloaded/
  Description: Place widgets into tabbed and accordion type interface.
- Version: 0.1
+ Version: 0.2
  Author: Anupam Saha
  Author URI: http://anupamsaha.wordpress.com
 
@@ -160,51 +160,54 @@ class tabbedWidgetsReloaded {
     // Read tabbed widget options
     $tw_options = get_option('widget_tabbed-widget-reloaded');
 
-    $optionsvar = '$rotateoptions';
-    $jsvars = 'var ' . $optionsvar . ' = new Array();' . "\n";
-
-    foreach ($tw_options as $tw_id => $tw_settings) {
-      if (!is_numeric($tw_id))
-      break;
-
-      $style = $tw_settings['style'];
-      $rotate = $tw_settings['rotate'];
-      $rotate_time = $tw_settings['rotate_time'];
-      $random_start = $tw_settings['random_start'];
-      $start_tab = $tw_settings['start_tab'];
-       
-      if (!is_numeric($start_tab))
-      $start_tab = 0;
-       
-      if (empty($rotate))
-      $rotate = 0;
-      else
-      $rotate = 1;
-       
-      if (empty($random_start))
-      $random_start = 0;
-      else
-      $random_start = 1;
-
-      if (empty($rotate_time))
-      $rotate_time = 10000; // Make default rotate time 10 seconds
-      elseif ($rotate)
-      $rotate_time = intval($rotate_time) * 1000; // Convert seconds to miliseconds
-       
-      if ($rotate_time < 1000)
-      $rotate_time = 1000; // Don't allow rotation times slower than 1 second.
-
-      $jsvars .= $optionsvar . '[' . $tw_id . '] = new Array();' . "\n";
-      $jsvars .= $optionsvar . '[' . $tw_id . ']["style"] = "' . $style . "\";\n";
-      $jsvars .= $optionsvar . '[' . $tw_id . ']["rotate"] = ' . $rotate . ";\n";
-      $jsvars .= $optionsvar . '[' . $tw_id . ']["random_start"] = ' . $random_start . ";\n";
-      $jsvars .= $optionsvar . '[' . $tw_id . ']["start_tab"] = ' . $start_tab . ";\n";
-      $jsvars .= $optionsvar . '[' . $tw_id . ']["interval"] = ' . $rotate_time . ";\n";
+    if ( is_array($tw_options) ) {
+      
+      $optionsvar = '$rotateoptions';
+      $jsvars = 'var ' . $optionsvar . ' = new Array();' . "\n";
+  
+      foreach ($tw_options as $tw_id => $tw_settings) {
+        if (!is_numeric($tw_id))
+          break;
+  
+        $style = $tw_settings['style'];
+        $rotate = $tw_settings['rotate'];
+        $rotate_time = $tw_settings['rotate_time'];
+        $random_start = $tw_settings['random_start'];
+        $start_tab = $tw_settings['start_tab'];
+         
+        if (!is_numeric($start_tab))
+          $start_tab = 0;
+         
+        if (empty($rotate))
+          $rotate = 0;
+        else
+          $rotate = 1;
+         
+        if (empty($random_start))
+          $random_start = 0;
+        else
+          $random_start = 1;
+  
+        if (empty($rotate_time))
+          $rotate_time = 10000; // Make default rotate time 10 seconds
+        elseif ($rotate)
+          $rotate_time = intval($rotate_time) * 1000; // Convert seconds to miliseconds
+         
+        if ($rotate_time < 1000)
+          $rotate_time = 1000; // Don't allow rotation times slower than 1 second.
+  
+        $jsvars .= $optionsvar . '[' . $tw_id . '] = new Array();' . "\n";
+        $jsvars .= $optionsvar . '[' . $tw_id . ']["style"] = "' . $style . "\";\n";
+        $jsvars .= $optionsvar . '[' . $tw_id . ']["rotate"] = ' . $rotate . ";\n";
+        $jsvars .= $optionsvar . '[' . $tw_id . ']["random_start"] = ' . $random_start . ";\n";
+        $jsvars .= $optionsvar . '[' . $tw_id . ']["start_tab"] = ' . $start_tab . ";\n";
+        $jsvars .= $optionsvar . '[' . $tw_id . ']["interval"] = ' . $rotate_time . ";\n";
+      }
+  
+      if (count($tw_options) > 0)
+        echo '<script type="text/javascript">'. $jsvars. '</script>'. "\n";
+      wp_enqueue_script('tabbed-widgets-reloaded-init-js',  $this->plugin_path . 'js/init-plugin.js', array('jquery', 'jquery-ui-custom', 'jquery-ui-cookie'), false, true);
     }
-
-    if (count($tw_options) > 0)
-    echo '<script type="text/javascript">'. $jsvars. '</script>'. "\n";
-    wp_enqueue_script('tabbed-widgets-reloaded-init-js',  $this->plugin_path . 'js/init-plugin.js', array('jquery', 'jquery-ui-custom', 'jquery-ui-cookie'), false, true);
   }
 }
 
